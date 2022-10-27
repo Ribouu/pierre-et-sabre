@@ -32,11 +32,11 @@ public class Humain {
 		parler("Mmmm, un bon verre de " + this.boissonFavorite + " ! GLOUPS !");
 	}
 	
-	public void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		this.argent += gain;
 	}
 	
-	public void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		this.argent -= perte;
 	}
 	
