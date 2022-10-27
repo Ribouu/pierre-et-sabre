@@ -10,9 +10,9 @@ public class Ronin extends Humain {
 	}
 	
 	public void donner(Commercant beneficiaire) {
-		int don = argent/10;
+		int don = getArgent() / 10;
 		parler(beneficiaire.getNom() + ", prend ces " + don + " sous.");
-		this.argent -= don;
+		perdreArgent(don);;
 		beneficiaire.recevoir(don);
 	}
 
@@ -20,14 +20,14 @@ public class Ronin extends Humain {
 		int force = 2 * honneur;
 		if (force >= adversaire.getReputation()) {
 			// Le Ronin gagne
-			this.argent += adversaire.getArgent();
+			gagnerArgent(adversaire.getArgent());
 			this.honneur++;
 			parler("Je t'ai eu petit yakuza !");
 			adversaire.perdre();
 		} else {
 			this.honneur--;
-			int argentAvant = argent;
-			this.argent = 0;
+			int argentAvant = getArgent();
+			perdreArgent(argentAvant);
 			parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup.");
 			adversaire.gagner(argentAvant);
 		}
