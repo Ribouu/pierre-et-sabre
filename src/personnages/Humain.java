@@ -41,8 +41,16 @@ public class Humain {
 	}
 	
 	public void acheter(String bien, int prix) {
-		parler("J'achète " + bien + ".");
-		perdreArgent(prix);
+		if (prix<this.argent) {
+			parler("J'ai " + this.argent + " sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix +
+					" sous.");
+			perdreArgent(prix);
+		} else {
+			parler("Je n'ai plus que " + this.argent + " en poche. Je ne peux pas même pas m'offrir " +
+					bien + " à " + prix + " sous.");
+		}
+		
+	
 	}
 	
 }
