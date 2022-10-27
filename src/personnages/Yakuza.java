@@ -9,9 +9,11 @@ public class Yakuza extends Humain {
 		super(nom, boissonFavorite, argent);
 		this.clan = clan;
 		this.reputation = reputation;
-		// TODO Auto-generated constructor stub
 	}
 	
+	public int getReputation() {
+		return this.reputation;
+	}
 	public int gagnerReputation(int gain) {
 		this.reputation += gain;
 		return this.reputation;
@@ -26,4 +28,17 @@ public class Yakuza extends Humain {
 				argent + " sous dans ma poche. Hi ! Hi !");
 	}
 
+	public void perdre() {
+		parler("J’ai perdu mon duel et mes "+ this.argent + " sous, snif... J'ai déshonoré le clan de "
+				+ this.clan + ".");
+		this.argent = 0;
+		this.reputation--;
+	}
+	
+	public void gagner(int gain) {
+		this.reputation++;
+		this.argent += gain;
+		parler("Ce ronin pensait vraiment battre " + getNom() + " du clan de " + this.clan + " ?"
+				+ " Je l'ai dépouillé de ses " + gain + " sous.");
+	}
 }
