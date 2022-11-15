@@ -5,11 +5,13 @@ public class Humain {
 	private String nom;
 	private String boissonFavorite;
 	private int argent;
+	private int nbConnaissance;
 	
 	public Humain(String nom, String boissonFavorite, int argent) {
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
-		this.argent = argent;	
+		this.argent = argent;
+		this.nbConnaissance = 0;
 	}
 	
 	public String getNom() {
@@ -50,7 +52,6 @@ public class Humain {
 					bien + " à " + prix + " sous.");
 		}
 		
-	
 	}
 	
 }
